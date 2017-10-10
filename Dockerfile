@@ -8,4 +8,6 @@ RUN apt-get purge -y \
 
 RUN apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
+ENV PATH $GOPATH/node-v6.11.4-linux-x64/bin:$PATH
+
 CMD ["/bin/bash"]
