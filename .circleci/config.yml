@@ -6,4 +6,6 @@ jobs:
       - image: docker:17.09.0-ce
     steps:
       - checkout
-      - run: docker build - < Dockerfile
+      - run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+          docker build - < Dockerfile
