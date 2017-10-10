@@ -1,0 +1,9 @@
+version: 2
+jobs:
+  build:
+    working_directory: /build
+    docker:
+      - image: docker:17.09.0-ce
+    steps:
+      - checkout
+      - run: docker build - < Dockerfile
