@@ -2,6 +2,6 @@
 
 cd /go/src/github.com/grafana/grafana
 yarn install --pure-lockfile
-go run build.go setup
-go run build.go build
-go run build.go package "$@"
+go run build.go -includeBuildNumber=false setup
+go run build.go -includeBuildNumber=false build
+go run build.go -includeBuildNumber=false package
