@@ -20,4 +20,6 @@ RUN apt-get install -y --no-install-recommends \
 
 RUN apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
+COPY ./build-grafana.sh /
+
 CMD ["/bin/bash"]

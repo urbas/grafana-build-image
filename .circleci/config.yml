@@ -6,4 +6,13 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - run: docker build - < Dockerfile
+      - run: '[ "${CIRCLE_BRANCH}" == "master" ] || docker build .'
+      - deploy:
+          name: Maybe Deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              IMAGE_TAG=urbas/grafana-build-image:1.0.0
+              docker login --username $DOCKER_USER --password $DOCKER_PASS
+              docker build --tag $IMAGE_TAG .
+              docker push $IMAGE_TAG
+            fi
