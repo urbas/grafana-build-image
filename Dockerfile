@@ -2,7 +2,10 @@ FROM golang:1.9.1
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   xz-utils
-RUN curl https://nodejs.org/dist/v6.11.4/node-v6.11.4-linux-x64.tar.xz | tar -xJ
+
+RUN mkdir node
+RUN if [ -z "$NODE_URL" ]; then export NODE_URL=https://nodejs.org/dist/v6.11.4/node-v6.11.4-linux-x64.tar.xz; fi
+RUN curl $NODE_URL | tar -xJ -C node --strip 1
 ENV PATH $GOPATH/node-v6.11.4-linux-x64/bin:$PATH
 RUN npm install -g yarn
 RUN apt-get purge -y \
