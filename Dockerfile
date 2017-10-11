@@ -21,6 +21,12 @@ RUN apt-get install -y --no-install-recommends \
   bzip2 \
   rpm
 
+# Installing phantomjs allows us to build Grafana on ARM
+RUN apt-get install -y --no-install-recommends \
+  phantomjs
+# Without this phantomjs tries to render to the screen and sigaborts.
+ENV QT_QPA_PLATFORM offscreen
+
 RUN apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && rm -rf /var/lib/apt/lists/*
 
 COPY ./build-grafana.sh /
