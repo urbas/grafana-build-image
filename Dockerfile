@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ARG NODE_URL=https://nodejs.org/dist/v6.11.4/node-v6.11.4-linux-x64.tar.xz
 RUN mkdir node
 RUN curl $NODE_URL | tar -xJ -C node --strip 1
-ENV PATH $GOPATH/node-v6.11.4-linux-x64/bin:$PATH
+ENV PATH $GOPATH/node/bin:$PATH
 RUN npm install -g yarn
 RUN apt-get purge -y \
   xz-utils
