@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/urbas/grafana-build-image/tree/master.svg?style=svg)](https://circleci.com/gh/urbas/grafana-build-image/tree/master)
+
 # How to build Grafana with this image?
 
 ```bash
