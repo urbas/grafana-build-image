@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/urbas/grafana-build-image/tree/master.svg?style=svg)](https://circleci.com/gh/urbas/grafana-build-image/tree/master)
-
 # How to build Grafana with this image?
 
 ```bash
@@ -10,5 +8,5 @@ sudo docker run -it -v $(pwd)/grafana:/go/src/github.com/grafana/grafana urbas/g
 # How to upload to bintray?
 
 ```bash
-VERSION=x.y.z curl -T dist/grafana_${VERSION}_armhf.deb -umatej:<API_KEY> "https://api.bintray.com/content/matej/deb-packages/grafana/${VERSION}/grafana_${VERSION}_armhf.deb"
+VERSION=x.y.z API_KEY=abc curl -T grafana_${VERSION}_armhf.deb -umatej:$API_KEY "https://api.bintray.com/content/matej/deb-packages/grafana/${VERSION}/grafana_${VERSION}_armhf.deb;deb_distribution=xenial;deb_component=main;deb_architecture=armhf"
 ```
