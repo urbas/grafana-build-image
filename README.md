@@ -1,3 +1,15 @@
+# How to build the image on ARM?
+
+```bash
+sudo docker build .
+```
+
+# Name and tag the image
+
+```bash
+sudo docker tag <IMAGE ID> urbas/grafana-build-image:<version>
+```
+
 # How to build Grafana with this image?
 
 ```bash

@@ -1,9 +1,9 @@
-FROM golang:1.9.1
+FROM golang:1.10.3
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   xz-utils
 
-ARG NODE_URL=https://nodejs.org/dist/v6.11.4/node-v6.11.4-linux-x64.tar.xz
+ARG NODE_URL=https://nodejs.org/dist/v8.11.4/node-v8.11.4-linux-armv7l.tar.xz
 RUN mkdir node
 RUN curl $NODE_URL | tar -xJ -C node --strip 1
 ENV PATH $GOPATH/node/bin:$PATH
